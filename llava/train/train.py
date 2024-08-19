@@ -41,6 +41,7 @@ from PIL import Image
 import datasets
 import numpy as np
 from trl import ORPOConfig
+from llava.train.llava_trainer import LLaVAOrpoTrainer
 
 
 local_rank = None
