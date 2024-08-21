@@ -13,11 +13,11 @@ deepspeed --master_port=25640 --include=localhost:0 --module llava.train.train_m
     --mm_use_im_start_end False \
     --mm_use_im_patch_token False \
     --bf16 True \
-    --output_dir /scratch/svani/experiments/dci_experiments/llava-v1.6-vicuna-13b-lora \
-    --num_train_epochs 6 \
-    --per_device_train_batch_size 32 \
-    --per_device_eval_batch_size 32 \
-    --gradient_accumulation_steps 1 \
+    --output_dir /scratch/svani/experiments/dci_experiments/llava-v1.6-vicuna-13b-lora-params \
+    --num_train_epochs 1 \
+    --per_device_train_batch_size 2 \
+    --per_device_eval_batch_size 2 \
+    --gradient_accumulation_steps 2 \
     --evaluation_strategy "no" \
     --save_strategy "steps" \
     --save_steps 100 \

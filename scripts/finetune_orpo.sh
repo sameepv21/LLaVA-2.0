@@ -32,4 +32,5 @@ deepspeed --master_port=25640 --include=localhost:0 --module llava.train.train_m
     --gradient_checkpointing True \
     --dataloader_num_workers 4 \
     --lazy_preprocess True \
-    --report_to wandb
+    --report_to wandb \
+    --orpo True
