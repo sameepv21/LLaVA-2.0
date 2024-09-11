@@ -1097,6 +1097,13 @@ def train(attn_implementation=None):
     else:
         data_module = make_supervised_data_module(tokenizer=tokenizer,
                                                 data_args=data_args)
+
+        # Load peft model for finetuning after stage 1
+        model.load_adapter(training_args.output_dir, adapter_name='self')
+        model.set_adapter("self")
+        model.delete_adapter("default")
+        print("adapter weight loaded for stage 2 finetuning")
+
         trainer = LLaVATrainer(model=model,
                         tokenizer=tokenizer,
                         args=training_args,
