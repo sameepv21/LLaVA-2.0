@@ -1,9 +1,9 @@
 #!/bin/bash
 
-DEEPSPEED=/home/cr8dl-user/sameep/LVLM/LLaVA-2.0/zero2.json
-DATA_PATH=/home/cr8dl-user/sameep/data/finetune/llava_instruct_80k.json
-IMAGE_FOLDER=/home/cr8dl-user/sameep/data/finetune/coco/train2017
-OUTPUT_DIR=/home/cr8dl-user/sameep/experiments/dci/llava-v1.6-vicuna-13b-lora-params
+DEEPSPEED=/home/svani/LVLM/LLaVA-2.0/scripts/zero2.json
+DATA_PATH=/scratch/svani/data/playground/data/llava_instruct_80k.json
+IMAGE_FOLDER=/scratch/svani/data/playground/data/coco/train2017
+OUTPUT_DIR=/scratch/svani/experiments/dci_experiments/llava-v1.6-vicuna-13b-lora-params
 
 deepspeed --master_port=25640 --include=localhost:0 --module llava.train.train_mem \
     --deepspeed $DEEPSPEED \
