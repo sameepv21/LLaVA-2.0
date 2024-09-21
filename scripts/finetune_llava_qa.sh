@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEEPSPEED=/home/svani/LVLM/LLaVA-2.0/scripts/zero2.json
-DATA_PATH=/scratch/svani/data/playground/data/llava_instruct_80k.json
+DATA_PATH=/scratch/svani/data/playground/data/llava_instruct_5k.json
 IMAGE_FOLDER=/scratch/svani/data/playground/data/coco/train2017
 OUTPUT_DIR=/scratch/svani/experiments/dci_experiments/llava-v1.6-vicuna-13b-lora-params
 
@@ -31,7 +31,7 @@ deepspeed --master_port=25640 --include=localhost:0 --module llava.train.train_m
     --weight_decay 0. \
     --warmup_ratio 0.03 \
     --lr_scheduler_type "cosine" \
-    --logging_steps 100 \
+    --logging_steps 25 \
     --tf32 True \
     --model_max_length 2048 \
     --gradient_checkpointing True \
